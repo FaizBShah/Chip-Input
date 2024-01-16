@@ -1,0 +1,29 @@
+.dashboard-container {
+  background-color: #fff;
+  padding: 1rem 0;
+  max-height: 40vh;
+  overflow-y: scroll;
+  border-radius: 10px;
+  box-shadow:
+    0 29px 52px rgba(0, 0, 0, 0.4),
+    0 25px 16px rgba(0, 0, 0, 0.2);
+
+  .dashboard-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #dfdfdf;
+    }
+
+    .dashboard-row-img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+  }
+}

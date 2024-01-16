@@ -6,16 +6,26 @@
   gap: 0.4rem;
   align-items: center;
 
-  .chip-input {
+  .chip-input-wrapper {
+    position: relative;
     flex: 1;
-    border: none;
-    display: block;
-    width: 100%;
-    padding: 0.4rem 0;
-    background-color: #dfdfdf;
 
-    &:focus {
-      outline: none;
+    .chip-input {
+      border: none;
+      display: block;
+      width: 100%;
+      padding: 0.4rem 0;
+      background-color: #dfdfdf;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .dropdown-wrapper {
+      position: absolute;
+      top: 120%;
+      left: 0;
     }
   }
 }
