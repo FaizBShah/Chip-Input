@@ -1,3 +1,3 @@
 import { User } from '../../data/users';
 
-export type ChipProps = User;
+export type ChipProps = Pick<User, 'name' | 'image'>;
