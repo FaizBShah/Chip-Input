@@ -2,6 +2,9 @@
   width: 60%;
   border-bottom: 2px solid blue;
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
 
   .chip-input {
     flex: 1;
@@ -9,6 +12,7 @@
     display: block;
     width: 100%;
     padding: 0.4rem 0;
+    background-color: #dfdfdf;
 
     &:focus {
       outline: none;

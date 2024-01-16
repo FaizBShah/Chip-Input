@@ -1,0 +1,19 @@
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background-color: #999;
+  padding: 0.2rem 0.5rem;
+  border-radius: 50px;
+
+  .chip-img {
+    width: 18px;
+    height: 18px;
+    border-radius: 50px;
+    background-color: #fff;
+  }
+
+  .chip-cancel-btn {
+    cursor: pointer;
+  }
+}
