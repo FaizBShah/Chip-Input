@@ -12,11 +12,13 @@ const ChipInput: FC<Props> = ({ placeholder, data }) => {
   const [dropdownData, setDropdownData] = useState<User[]>([]);
   const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
   const [highlightedChip, setHighlightedChip] = useState<number>(-1);
+  const [activeDropdownIndex, setActiveDropdownIndex] = useState<number>(0);
 
   const onSelectItem = (item: User): void => {
     setChips([...chips, item]);
     setUnselectedData(unselectedData.filter(data => data.email !== item.email));
     setIsDropdownVisible(false);
+    setActiveDropdownIndex(0);
     setValue('');
     setHighlightedChip(-1);
   };
@@ -29,7 +31,7 @@ const ChipInput: FC<Props> = ({ placeholder, data }) => {
 
   const onInputKeyDown = (e: React.KeyboardEvent<HTMLInputElement>): void => {
     if (e.key === 'Enter' && value.length > 0 && dropdownData.length > 0) {
-      onSelectItem(dropdownData[0]);
+      onSelectItem(dropdownData[activeDropdownIndex]);
       setValue('');
     } else if (e.key === 'Backspace' && value.length === 0) {
       if (highlightedChip === -1) {
@@ -38,6 +40,10 @@ const ChipInput: FC<Props> = ({ placeholder, data }) => {
         onClearChip(chips[chips.length - 1]);
         setHighlightedChip(-1);
       }
+    } else if (e.key === 'ArrowUp' && dropdownData.length > 0) {
+      setActiveDropdownIndex(activeDropdownIndex === 0 ? dropdownData.length - 1 : activeDropdownIndex - 1);
+    } else if (e.key === 'ArrowDown' && dropdownData.length > 0) {
+      setActiveDropdownIndex(activeDropdownIndex === dropdownData.length - 1 ? 0 : activeDropdownIndex + 1);
     }
   };
 
@@ -57,7 +63,7 @@ const ChipInput: FC<Props> = ({ placeholder, data }) => {
         <input className="chip-input" placeholder={placeholder} value={value} onChange={onInputChange} onKeyDown={onInputKeyDown} />
         {isDropdownVisible && (
           <div className="dropdown-wrapper">
-            <Dropdown data={dropdownData} onSelect={onSelectItem} />
+            <Dropdown data={dropdownData} onSelect={onSelectItem} activeDropdownIndex={activeDropdownIndex} />
           </div>
         )}
       </div>
