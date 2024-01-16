@@ -1,8 +1,8 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const isDev = process.env.NODE_ENV === 'development'
+const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   mode: isDev ? 'development' : 'production',
@@ -22,6 +22,7 @@ module.exports = {
       directory: path.resolve(__dirname, 'build')
     },
     port: 3000,
+    open: true,
     hot: true,
     compress: true,
     historyApiFallback: true
@@ -64,4 +65,4 @@ module.exports = {
       chunkFilename: isDev ? '[id].css' : '[id].[contenthash].css'
     })
   ]
-}
+};

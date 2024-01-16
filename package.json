@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "An Input component with Chips",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "check-types": "tsc --project tsconfig.json",
+    "lint": "eslint --fix --ext .ts,.tsx ./src",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server",
+    "build:react": "cross-env NODE_ENV=production webpack",
+    "build": "npm run check-types && npm run lint && npm run build:react"
   },
   "author": "Faiz Bachoo Shah",
   "license": "MIT",
