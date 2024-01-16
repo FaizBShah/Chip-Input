@@ -116,7 +116,7 @@ const users: User[] = [
     email: 'froachel@howstuffworks.com'
   },
   {
-    name: "Felicity O'Reilly",
+    name: 'Felicity Reilly',
     image: 'https://robohash.org/Felicity.png?set=set4',
     email: 'beykelhofm@wikispaces.com'
   },
