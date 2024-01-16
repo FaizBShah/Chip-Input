@@ -26,6 +26,8 @@ const ChipInput: FC<Props> = ({ placeholder, data }) => {
   const onClearChip = (item: User): void => {
     setUnselectedData([...unselectedData, item]);
     setChips(chips.filter(chip => chip.name !== item.name));
+    setIsDropdownVisible(false);
+    setActiveDropdownIndex(0);
     setHighlightedChip(-1);
   };
 
